@@ -47,3 +47,15 @@ Inline form
         <button type="submit" class="btn">Sign in</button>
     </form>
 
+Horizontal form
+
+    <form class="form-horizontal">
+        {{ form|twitter_bootstrap:"horizontal" }}
+        <div class="contrl-group">
+            <div class="controls">
+                <button type="submit" class="btn">Sign in</button>
+            </div>
+        </div>
+    </form>
+
+
