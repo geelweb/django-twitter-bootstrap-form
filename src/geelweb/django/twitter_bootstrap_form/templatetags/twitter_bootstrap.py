@@ -23,12 +23,15 @@ def twitter_bootstrap(element, layout="default"):
     else:
 
         if layout == "default":
-            template_file = "form.html"
+            field_template_file = "field.html"
         else:
-            template_file = "%s_form.html" % layout
+            field_template_file = "%s_field.html" % layout
 
-        template = get_template("twitter_bootstrap_form/%s" % template_file)
-        context = Context({'form': element})
+        template = get_template("twitter_bootstrap_form/form.html")
+        context = Context({
+            'form': element,
+            'layout': layout,
+            'field_template': "twitter_bootstrap_form/%s" % field_template_file})
 
     return template.render(context)
 
