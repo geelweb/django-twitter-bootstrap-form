@@ -39,5 +39,6 @@ if __name__ == "__main__":
                 'templates/twitter_bootstrap_form/*.html',
                 ],
         },
+        zip_safe=False
         )
 
