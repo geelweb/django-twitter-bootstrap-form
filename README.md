@@ -2,6 +2,10 @@
 
 Render Django forms using the HTML described by the [Twitter Bootstrap](http://twitter.github.com/bootstrap/base-css.html#forms)
 
+## Demo
+
+A basic demo is availaible on this [sandbox](http://django-sandbox.geelweb.org/twitter-bootstrap-form)
+
 ## Installation
 
 From Source:
