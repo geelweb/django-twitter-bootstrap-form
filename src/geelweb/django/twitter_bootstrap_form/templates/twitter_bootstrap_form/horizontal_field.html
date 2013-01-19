@@ -1,6 +1,6 @@
 {% load twitter_bootstrap %}
 
-<div class="control-group">
+<div class="control-group{% if field.errors %} error{% endif %}">
 {% if field|is_checkbox %}
     <div class="controls">
         <label class="checkbox" for="{{ field.auto_id }}">
