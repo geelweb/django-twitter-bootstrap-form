@@ -13,6 +13,10 @@ From Source:
     python setup.py build
 	sudo python setup.py install
 
+## Requirements
+
+ * Django 1.4
+
 ## Configuration
 
 ### settings.py
