@@ -1,7 +1,7 @@
 {% load twitter_bootstrap %}
 
 {% if field|is_checkbox %}
-    <label class="checkbox" for="{{ field.auto_id }}">
+    <label class="checkbox inline" for="{{ field.auto_id }}">
         {{ field }} {{ field.label }}
     </label>
 {% else %}

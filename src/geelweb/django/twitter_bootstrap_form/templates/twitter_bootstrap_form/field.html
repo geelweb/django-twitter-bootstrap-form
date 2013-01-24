@@ -4,6 +4,13 @@
     <label class="checkbox" for="{{ field.auto_id }}">
         {{ field }} {{ field.label }}
     </label>
+
+{% elif field|is_radio %}
+    {% for radio in field %}
+    <label class="radio">
+        {{ radio.tag }} {{ radio.choice_label }}
+    </label>
+    {% endfor %}
 {% else %}
     <label class="control-label" for="{{ field.auto_id }}">{{ field.label }}</label>
     {{ field }}
