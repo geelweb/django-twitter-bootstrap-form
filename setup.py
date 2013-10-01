@@ -21,7 +21,7 @@ long_desc = open('README.md').read()
 
 if __name__ == "__main__":
     setup(
-        name="django twitter bootstrap form",
+        name="django-twitterbootstrap-form",
         version=__version__,
         description="Render Django forms as described using the twitter bootstrap HTML layout",
         long_description=long_desc,
@@ -30,6 +30,7 @@ if __name__ == "__main__":
         maintainer=maintainer,
         maintainer_email=maintainer_email,
         url="https://github.com/geelweb/django-twitter-bootstrap-form",
+        download_url="https://github.com/geelweb/django-twitter-bootstrap-form/tarball/0.1",
         license='MIT',
         namespace_packages = ['geelweb', 'geelweb.django'],
         packages=find_packages('src'),
@@ -39,6 +40,6 @@ if __name__ == "__main__":
                 'templates/twitter_bootstrap_form/*.html',
                 ],
         },
-        zip_safe=False
+        keywords = ['django', 'twitter', 'bootstrap', 'form'],
         )
 
