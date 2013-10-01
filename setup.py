@@ -17,14 +17,12 @@ from setuptools import setup, find_packages
 author_data = __author__.split(" ")
 maintainer = " ".join(author_data[0:-1])
 maintainer_email = author_data[-1]
-long_desc = open('README.md').read()
 
 if __name__ == "__main__":
     setup(
         name="django-twitterbootstrap-form",
         version=__version__,
         description="Render Django forms as described using the twitter bootstrap HTML layout",
-        long_description=long_desc,
         author=maintainer,
         author_email=maintainer_email,
         maintainer=maintainer,
