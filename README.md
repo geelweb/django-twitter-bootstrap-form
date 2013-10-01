@@ -10,12 +10,11 @@ A basic demo is availaible on this [sandbox](http://django-sandbox.geelweb.org/t
 
 From Source:
 
-    python setup.py build
-	sudo python setup.py install
+	python setup.py install
 
 ## Requirements
 
- * Django 1.4
+ * Django >= 1.4
 
 ## Configuration
 
