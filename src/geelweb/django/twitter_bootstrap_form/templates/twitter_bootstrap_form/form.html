@@ -1,7 +1,11 @@
 {% if form.non_field_errors %}
-    {% for non_field_error in form.non_field_errors %}
-        {{ non_field_error }}
-    {% endfor %}
+    <div class="alert alert-error">
+        <ul>
+            {% for non_field_error in form.non_field_errors %}
+            <li>{{ non_field_error }}</li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endif %}
 
 {% for field in form.hidden_fields %}
