@@ -4,6 +4,14 @@
     <label class="checkbox inline" for="{{ field.auto_id }}">
         {{ field }} {{ field.label }}
     </label>
-{% else %}
+{% endif %}
+
+{% if field|is_radio %}
+    <label class="radio inline" for="{{ field.auto_id }}">
+        {{ field }} {{ field.label }}
+    </label>
+{% endif %}
+
+{% if not field|is_checkbox and not field|is_radio %}
     {{ field }}
 {% endif %}
