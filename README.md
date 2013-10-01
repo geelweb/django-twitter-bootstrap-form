@@ -8,6 +8,10 @@ A basic demo is availaible on this [sandbox](http://django-sandbox.geelweb.org/t
 
 ## Installation
 
+From PyPI
+
+    pip install django-twitterbootstrap-form
+
 From Source:
 
 	python setup.py install
