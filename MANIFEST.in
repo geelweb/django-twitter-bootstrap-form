@@ -1,0 +1,3 @@
+include LICENSE.txt
+include README.md
+recursive-include src/geelweb/django/twitter_bootstrap_form/templates *
