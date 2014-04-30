@@ -1,1 +1,6 @@
-{{ field }}
+{% load twitter_bootstrap %}
+
+<div class="form-group">
+    <label class="sr-only" for="{{ field.auto_id }}">{{ field.label }}</label>
+    {{ field|add_class:"form-control" }}
+</div>

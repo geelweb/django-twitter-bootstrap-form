@@ -1,25 +1,30 @@
 {% load twitter_bootstrap %}
 
-{% if field|is_checkbox %}
-    <label class="checkbox" for="{{ field.auto_id }}">
-        {{ field }} {{ field.label }}
-    </label>
+<div class="{% if field|is_checkbox %}checkbox{% elif field|is_radio %}radio{% else %}form-group{% endif %}">
+    {% if field|is_checkbox %}
+        <label for="{{ field.auto_id }}">
+            {{ field }} {{ field.label }}
+        </label>
+    {% elif field|is_radio %}
+        {% for radio in field %}
+        <label>
+            {{ radio.tag }} {{ radio.choice_label }}
+        </label>
+        {% endfor %}
+    {% else %}
+        <label for="{{ field.auto_id }}">{{ field.label }}</label>
+        {% if not field|is_file %}
+        {{ field|add_class:"form-control" }}
+        {% else %}
+        {{ field }}
+        {% endif %}
+    {% endif %}
 
-{% elif field|is_radio %}
-    {% for radio in field %}
-    <label class="radio">
-        {{ radio.tag }} {{ radio.choice_label }}
-    </label>
+    {% for error in field.errors %}
+        <span class="help-inline">{{ error }}</span>
     {% endfor %}
-{% else %}
-    <label class="control-label" for="{{ field.auto_id }}">{{ field.label }}</label>
-    {{ field }}
-{% endif %}
 
-{% for error in field.errors %}
-    <span class="help-inline">{{ error }}</span>
-{% endfor %}
-
-{% if field.help_text %}
-    <p class="help-block">{{ field.help_text|safe }}</p>
-{% endif %}
+    {% if field.help_text %}
+        <p class="help-block">{{ field.help_text|safe }}</p>
+    {% endif %}
+</div>

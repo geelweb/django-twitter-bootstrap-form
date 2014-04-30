@@ -1,6 +1,6 @@
 # Django Twitter Bootstrap Form
 
-Render Django forms using the HTML described by the [Twitter Bootstrap](http://twitter.github.com/bootstrap/base-css.html#forms)
+Render Django forms using the HTML described by the [Bootstrap 3](http://getbootstrap.com/css/#forms).
 
 ## Demo
 
@@ -16,9 +16,24 @@ From Source:
 
 	python setup.py install
 
+### About Bootstrap 2
+
+You can install the 0.2 version of this lib if you still work with old versions
+of [Twitter Bootstrap](http://twitter.github.com/bootstrap/base-css.html#forms)
+
+From PyPI
+
+    pip install django-twitterbootstrap-form==0.2
+
+From Source:
+
+    git checkout 0.2
+    python setup.py install
+
 ## Requirements
 
- * Django >= 1.4
+ * Django>=1.4
+ * django-widget-tweaks==1.3
 
 ## Configuration
 
@@ -36,35 +51,32 @@ Load the filters and use them
 
 Default form
 
-    <form>
-        <fieldset>
-            <legend>Legend</legend>
-            {{ form|twitter_bootstrap }}
-            <button type="submit" class="btn">Submit</button>
-        </fieldset>
+    <form role="form">
+        {{ default_form|twitter_bootstrap }}
+        <button type="submit" class="btn btn-default">Submit</button>
     </form>
 
-Search form
+Search form / Navbar form
 
-    <form class="form-search">
-        {{ form|twitter_bootstrap:"search" }}
-        <button type="submit" class="btn">Search</button>
+    <form role="search" class="navbar-form">
+        {{ search_form|twitter_bootstrap:"search" }}
+        <button type="submit" class="btn btn-default">Search</button>
     </form>
 
 Inline form
 
-    <form class="form-inline">
-        {{ form|twitter_bootstrap:"inline" }}
-        <button type="submit" class="btn">Sign in</button>
+    <form role="form" class="form-inline">
+        {{ inline_form|twitter_bootstrap:"inline" }}
+        <button type="submit" class="btn btn-default">Sign in</button>
     </form>
 
 Horizontal form
 
-    <form class="form-horizontal">
-        {{ form|twitter_bootstrap:"horizontal" }}
-        <div class="contrl-group">
-            <div class="controls">
-                <button type="submit" class="btn">Sign in</button>
+    <form role="form" class="form-horizontal">
+        {{ horizontal_form|twitter_bootstrap:"horizontal" }}
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Sign in</button>
             </div>
         </div>
     </form>

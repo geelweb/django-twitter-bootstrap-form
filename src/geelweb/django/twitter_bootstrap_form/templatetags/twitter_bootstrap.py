@@ -2,6 +2,8 @@ from django import template
 from django.template import Context
 from django.template.loader import get_template
 
+from widget_tweaks.templatetags.widget_tweaks import append_attr
+
 register = template.Library()
 
 @register.filter
@@ -43,3 +45,11 @@ def is_checkbox(field):
 def is_radio(field):
     return field.field.widget.__class__.__name__.lower() == "radioselect"
 
+@register.filter
+def is_file(field):
+    return field.field.widget.__class__.__name__.lower() == "clearablefileinput"
+
+
+@register.filter
+def add_class(field, css_class):
+    return append_attr(field, 'class:' + css_class)
