@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Django-twitter-bootstrap-form : Django template filters to render forms using HTML described by the Twitter Bootstrap" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Django-twitter-bootstrap-form</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/geelweb/django-twitter-bootstrap-form">View on GitHub</a>
+
+          <h1 id="project_title">Django-twitter-bootstrap-form</h1>
+          <h2 id="project_tagline">Django template filters to render forms using HTML described by the Twitter Bootstrap</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/geelweb/django-twitter-bootstrap-form/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/geelweb/django-twitter-bootstrap-form/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="django-twitter-bootstrap-form" class="anchor" href="#django-twitter-bootstrap-form"><span class="octicon octicon-link"></span></a>Django Twitter Bootstrap Form</h1>
+
+<p>Render Django forms using the HTML described by the <a href="http://getbootstrap.com/css/#forms">Bootstrap 3</a>.</p>
+
+<h2>
+<a name="demo" class="anchor" href="#demo"><span class="octicon octicon-link"></span></a>Demo</h2>
+
+<p>A basic demo is availaible on this <a href="http://django-sandbox.geelweb.org/twitter-bootstrap-form">sandbox</a></p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>From PyPI</p>
+
+<pre><code>pip install django-twitterbootstrap-form
+</code></pre>
+
+<p>From Source:</p>
+
+<pre><code>python setup.py install
+</code></pre>
+
+<h3>
+<a name="about-bootstrap-2" class="anchor" href="#about-bootstrap-2"><span class="octicon octicon-link"></span></a>About Bootstrap 2</h3>
+
+<p>You can install the 0.2 version of this lib if you still work with old versions
+of <a href="http://twitter.github.com/bootstrap/base-css.html#forms">Twitter Bootstrap</a></p>
+
+<p>From PyPI</p>
+
+<pre><code>pip install django-twitterbootstrap-form==0.2
+</code></pre>
+
+<p>From Source:</p>
+
+<pre><code>git checkout 0.2
+python setup.py install
+</code></pre>
+
+<h2>
+<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
+<ul>
+<li>Django&gt;=1.4</li>
+<li>django-widget-tweaks==1.3</li>
+</ul><h2>
+<a name="configuration" class="anchor" href="#configuration"><span class="octicon octicon-link"></span></a>Configuration</h2>
+
+<h3>
+<a name="settingspy" class="anchor" href="#settingspy"><span class="octicon octicon-link"></span></a>settings.py</h3>
+
+<p>Edit your settings.py file and add the following line into your INSTALLED_APPS</p>
+
+<pre><code>'geelweb.django.twitter_bootstrap_form'
+</code></pre>
+
+<h3>
+<a name="html-templates" class="anchor" href="#html-templates"><span class="octicon octicon-link"></span></a>HTML templates</h3>
+
+<p>Load the filters and use them</p>
+
+<pre><code>{% load twitter_bootstrap %}
+</code></pre>
+
+<p>Default form</p>
+
+<pre><code>&lt;form role="form"&gt;
+    {{ default_form|twitter_bootstrap }}
+    &lt;button type="submit" class="btn btn-default"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>Search form / Navbar form</p>
+
+<pre><code>&lt;form role="search" class="navbar-form"&gt;
+    {{ search_form|twitter_bootstrap:"search" }}
+    &lt;button type="submit" class="btn btn-default"&gt;Search&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>Inline form</p>
+
+<pre><code>&lt;form role="form" class="form-inline"&gt;
+    {{ inline_form|twitter_bootstrap:"inline" }}
+    &lt;button type="submit" class="btn btn-default"&gt;Sign in&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>Horizontal form</p>
+
+<pre><code>&lt;form role="form" class="form-horizontal"&gt;
+    {{ horizontal_form|twitter_bootstrap:"horizontal" }}
+    &lt;div class="form-group"&gt;
+        &lt;div class="col-sm-offset-2 col-sm-10"&gt;
+            &lt;button type="submit" class="btn btn-default"&gt;Sign in&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+</code></pre>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Django-twitter-bootstrap-form maintained by <a href="https://github.com/geelweb">geelweb</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
