@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <meta name="description" content="Django-twitter-bootstrap-form : Django template filters to render forms using HTML described by the Twitter Bootstrap" />
 
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
     <title>Django-twitter-bootstrap-form</title>
@@ -34,15 +35,10 @@
         <h1>
 <a name="django-twitter-bootstrap-form" class="anchor" href="#django-twitter-bootstrap-form"><span class="octicon octicon-link"></span></a>Django Twitter Bootstrap Form</h1>
 
-<p>Render Django forms using the HTML described by the <a href="http://getbootstrap.com/css/#forms">Bootstrap 3</a>.</p>
+<p>Render Django forms using <a href="http://getbootstrap.com/css/#forms">Bootstrap 3</a>.</p>
 
 <h2>
-<a name="demo" class="anchor" href="#demo"><span class="octicon octicon-link"></span></a>Demo</h2>
-
-<p>A basic demo is availaible on this <a href="http://django-sandbox.geelweb.org/twitter-bootstrap-form">sandbox</a></p>
-
-<h2>
-<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h2>
 
 <p>From PyPI</p>
 
@@ -96,43 +92,408 @@ python setup.py install
 <pre><code>{% load twitter_bootstrap %}
 </code></pre>
 
-<p>Default form</p>
 
-<pre><code>&lt;form role="form"&gt;
-    {{ default_form|twitter_bootstrap }}
+<h2>Default styles</h2>
+<div class="row">
+    <div class="span12">
+        <form role="form" class="demo-form demo-default">
+            <div class="form-group">
+                <label for="id_email">Email</label>
+                <input class="form-control" id="id_email" maxlength="100" name="email" placeholder="Enter email" type="text" />
+            </div>
+
+            <div class="form-group">
+                <label for="id_password">Password</label>
+                <input class="form-control" id="id_password" maxlength="100" name="password" placeholder="Password" type="password" />
+            </div>
+
+            <div class="form-group">
+                <label for="id_file_input">File input</label>
+                <input id="id_file_input" name="file_input" type="file" />
+                <p class="help-block">Example block-level help text here.</p>
+            </div>
+
+            <div class="checkbox">
+                <label for="id_check_me_out">
+                    <input id="id_check_me_out" name="check_me_out" type="checkbox" /> Check me out
+                </label>
+            </div>
+
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="span12">
+<pre>
+# forms.py
+class DefaultForm(forms.Form):
+    email = forms.EmailField(max_length=100,
+                             widget=forms.TextInput(attrs={'placeholder': 'Enter email'}))
+    password = forms.CharField(max_length=100,
+                               widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
+    file_input = forms.FileField(help_text="Example block-level help text here.")
+    check_me_out = forms.BooleanField(required=False)
+
+# template.html
+{% load twitter_bootstrap %}
+
+&lt;form role="form"&gt;
+    {{ form|twitter_bootstrap }}
     &lt;button type="submit" class="btn btn-default"&gt;Submit&lt;/button&gt;
 &lt;/form&gt;
-</code></pre>
+</pre>
+    </div>
+</div>
 
-<p>Search form / Navbar form</p>
 
-<pre><code>&lt;form role="search" class="navbar-form"&gt;
-    {{ search_form|twitter_bootstrap:"search" }}
+<h2>Search Form</h2>
+<div class="row">
+    <div class="span12">
+        <form role="search" class="demo-form demo-search navbar-form">
+            <div class="form-group">
+                <label class="sr-only" for="id_query">Query</label>
+                <input class="input-medium search-query form-control" id="id_query" maxlength="100" name="query" type="text" />
+            </div>
+
+            <button type="submit" class="btn btn-default">Search</button>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="span12">
+<pre>
+# forms.py
+class SearchForm(forms.Form):
+    query = forms.CharField(max_length=100,
+                            widget=forms.TextInput(attrs={'class': 'input-medium search-query'}))
+
+# template.html
+{% load twitter_bootstrap %}
+
+&lt;form role="search" class="navbar-form"&gt;
+    {{ form|twitter_bootstrap:"search" }}
     &lt;button type="submit" class="btn btn-default"&gt;Search&lt;/button&gt;
 &lt;/form&gt;
-</code></pre>
+</pre>
+    </div>
+</div>
 
-<p>Inline form</p>
+<h2>Inline Form</h2>
+<div class="row">
+    <div class="span12">
+        <form role="form" class="demo-form demo-inline form-inline">
+            <div class="form-group">
+                <label class="sr-only" for="id_inline-email">Email</label>
+                <input class="form-control" id="id_inline-email" maxlength="100" name="inline-email" placeholder="Enter email" type="text" />
+            </div>
 
-<pre><code>&lt;form role="form" class="form-inline"&gt;
-    {{ inline_form|twitter_bootstrap:"inline" }}
+            <div class="form-group">
+                <label class="sr-only" for="id_inline-password">Password</label>
+                <input class="form-control" id="id_inline-password" maxlength="100" name="inline-password" placeholder="Password" type="password" />
+            </div>
+
+            <div class="checkbox">
+                <label for="id_inline-remember_me">
+                    <input id="id_inline-remember_me" name="inline-remember_me" type="checkbox" /> Remember me
+                </label>
+            </div>
+
+            <button type="submit" class="btn btn-default">Sign in</button>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="span12">
+<pre>
+# forms.py
+class LoginForm(forms.Form):
+    email = forms.EmailField(max_length=100,
+                             widget=forms.TextInput(attrs={'placeholder': 'Enter email'}))
+    password = forms.CharField(max_length=100,
+                               widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
+    remember_me = forms.BooleanField(required=False)
+
+# template.html
+{% load twitter_bootstrap %}
+
+&lt;form role="form" class="form-inline"&gt;
+    {{ form|twitter_bootstrap:"inline" }}
     &lt;button type="submit" class="btn btn-default"&gt;Sign in&lt;/button&gt;
 &lt;/form&gt;
-</code></pre>
+</pre>
+    </div>
+</div>
 
-<p>Horizontal form</p>
+<h2>Horizontal Form</h2>
+<div class="row">
+    <div class="span12">
+        <form role="form" class="demo-form demo-horizontal form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="id_horizontal-email">Email</label>
+                <div class="col-sm-10">
+                    <input class="form-control" id="id_horizontal-email" maxlength="100" name="horizontal-email" placeholder="Enter email" type="text" />
+                </div>
+            </div>
 
-<pre><code>&lt;form role="form" class="form-horizontal"&gt;
-    {{ horizontal_form|twitter_bootstrap:"horizontal" }}
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="id_horizontal-password">Password</label>
+                <div class="col-sm-10">
+                    <input class="form-control" id="id_horizontal-password" maxlength="100" name="horizontal-password" placeholder="Password" type="password" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label for="id_horizontal-remember_me">
+                            <input id="id_horizontal-remember_me" name="horizontal-remember_me" type="checkbox" /> Remember me
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Sign in</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="span12">
+<pre>
+# forms.py
+class LoginForm(forms.Form):
+    email = forms.EmailField(max_length=100,
+                             widget=forms.TextInput(attrs={'placeholder': 'Enter email'}))
+    password = forms.CharField(max_length=100,
+                               widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
+    remember_me = forms.BooleanField(required=False)
+
+# template.html
+{% load twitter_bootstrap %}
+
+&lt;form role="form" class="form-horizontal"&gt;
+    {{ form|twitter_bootstrap:"horizontal" }}
     &lt;div class="form-group"&gt;
         &lt;div class="col-sm-offset-2 col-sm-10"&gt;
             &lt;button type="submit" class="btn btn-default"&gt;Sign in&lt;/button&gt;
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/form&gt;
-</code></pre>
-      </section>
+</pre>
     </div>
+</div>
+
+<h2>Checkboxes and radios</h2>
+
+<h3>Default (stacked)</h3>
+
+<div class="row">
+    <div class="span12">
+        <form class="demo-form">
+            <div class="checkbox">
+                <label for="id_opt1">
+                    <input id="id_opt1" name="opt1" type="checkbox" /> Option one is this and that—be sure to include why it&#39;s great
+                </label>
+            </div>
+
+            <div class="radio">
+                <label>
+                    <input name="radio" type="radio" value="option1" /> Option one is this and that—be sure to include why it&#39;s great
+                </label>
+            </div>
+
+            <div class="radio">
+                <label>
+                    <input name="radio" type="radio" value="option2" /> Option two can be something else and selecting it will deselect option one
+                </label>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="span12">
+<pre>
+# forms.py
+CHOICES = (
+        ('option1', "Option one is this and that—be sure to include why it's great"),
+        ('option2', "Option two can be something else and selecting it will deselect option one"),
+        )
+class CheckboxRadioForm(forms.Form):
+    opt1 = forms.BooleanField(label="Option one is this and that—be sure to include why it's great")
+    radio = forms.ChoiceField(widget=forms.RadioSelect, choices=CHOICES)
+
+# template.html
+{% load twitter_bootstrap %}
+
+&lt;form&gt;
+    {{ form|twitter_bootstrap }}
+&lt;/form&gt;
+
+</pre>
+    </div>
+</div>
+
+<h3>Inline checkboxes</h3>
+
+<div class="row">
+    <div class="span12">
+        <form class="demo-form">
+
+
+
+
+
+
+
+<div class="checkbox">
+
+        <label for="id_opt1">
+            <input id="id_opt1" name="opt1" type="checkbox" /> 1
+        </label>
+
+</div>
+
+
+
+
+<div class="checkbox">
+
+        <label for="id_opt2">
+            <input id="id_opt2" name="opt2" type="checkbox" /> 2
+        </label>
+
+</div>
+
+
+
+
+<div class="checkbox">
+
+        <label for="id_opt3">
+            <input id="id_opt3" name="opt3" type="checkbox" /> 3
+        </label>
+
+</div>
+
+
+
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="span12">
+<pre>
+# forms.py
+class MyForm(forms.Form):
+    opt1 = forms.BooleanField(label="1")
+    opt2 = forms.BooleanField(label="2")
+    opt3 = forms.BooleanField(label="3")
+
+# template.html
+{% load twitter_bootstrap %}
+
+&lt;form&gt;
+    {{ form|twitter_bootstrap:"inline" }}
+&lt;/form&gt;
+
+</pre>
+    </div>
+</div>
+
+<h2>Selects</h2>
+<div class="row">
+    <div class="span12">
+        <form class="demo-form">
+
+
+
+
+
+
+
+<div class="form-group">
+
+        <label for="id_select1"></label>
+
+        <select class="form-control" id="id_select1" name="select1">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+</select>
+
+
+
+
+
+
+</div>
+
+
+
+
+<div class="form-group">
+
+        <label for="id_select2"></label>
+
+        <select multiple="multiple" class="form-control" id="id_select2" name="select2">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+</select>
+
+
+
+
+
+
+</div>
+
+
+
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="span12">
+<pre>
+# forms.py
+SELECT_CHOICES = (
+        ('1', '1'),
+        ('2', '2'),
+        ('3', '3'),
+        ('4', '4'),
+        ('5', '5'),
+        )
+
+class MyForm(forms.Form):
+    select1 = forms.ChoiceField(choices=SELECT_CHOICES, label="")
+    select2 = forms.ChoiceField(widget=forms.SelectMultiple, choices=SELECT_CHOICES, label="")
+
+# template.html
+{% load twitter_bootstrap %}
+
+&lt;form&gt;
+    {{ form|twitter_bootstrap }}
+&lt;/form&gt;
+
+</pre>
+    </div>
+</div>
+
 
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
@@ -142,7 +503,7 @@ python setup.py install
       </footer>
     </div>
 
-    
+
 
   </body>
 </html>
