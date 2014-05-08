@@ -1,16 +1,19 @@
 {% load twitter_bootstrap %}
 
-<div class="{% if field|is_checkbox %}checkbox{% elif field|is_radio %}radio{% else %}form-group{% endif %}">
+{% if field|is_radio %}
+{% for radio in field %}
+<div class="radio">
+    <label>
+        {{ radio.tag }} {{ radio.choice_label }}
+    </label>
+</div>
+{% endfor %}
+{% else %}
+<div class="{% if field|is_checkbox %}checkbox{% else %}form-group{% endif %}">
     {% if field|is_checkbox %}
         <label for="{{ field.auto_id }}">
             {{ field }} {{ field.label }}
         </label>
-    {% elif field|is_radio %}
-        {% for radio in field %}
-        <label>
-            {{ radio.tag }} {{ radio.choice_label }}
-        </label>
-        {% endfor %}
     {% else %}
         <label for="{{ field.auto_id }}">{{ field.label }}</label>
         {% if not field|is_file %}
@@ -28,3 +31,4 @@
         <p class="help-block">{{ field.help_text|safe }}</p>
     {% endif %}
 </div>
+{% endif %}
