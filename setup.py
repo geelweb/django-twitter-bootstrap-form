@@ -30,7 +30,7 @@ if __name__ == "__main__":
         maintainer=maintainer,
         maintainer_email=maintainer_email,
         url="https://github.com/geelweb/django-twitter-bootstrap-form",
-        download_url="https://github.com/geelweb/django-twitter-bootstrap-form/tarball/0.2",
+        download_url="https://github.com/geelweb/django-twitter-bootstrap-form/tarball/0.3",
         license='MIT',
         namespace_packages = ['geelweb', 'geelweb.django'],
         packages=find_packages('src'),
