@@ -24,7 +24,7 @@
     {% endif %}
 
     {% for error in field.errors %}
-        <span class="help-inline">{{ error }}</span>
+        <span class="help-inline text-danger">{{ error }}</span>
     {% endfor %}
 
     {% if field.help_text %}

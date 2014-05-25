@@ -1,6 +1,6 @@
 {% load twitter_bootstrap %}
 
-<div class="form-group{% if field.errors %} error{% endif %}">
+<div class="form-group{% if field.errors %} has-error{% endif %}">
     {% if field|is_checkbox %}
     <div class="col-sm-offset-2 col-sm-10">
         <div class="checkbox">
@@ -15,7 +15,7 @@
         {{ field|add_class:"form-control" }}
 
         {% for error in field.errors %}
-            <span class="help-inline">{{ error }}</span>
+            <span class="help-inline text-danger">{{ error }}</span>
         {% endfor %}
 
         {% if field.help_text %}
