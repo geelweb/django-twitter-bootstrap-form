@@ -1,16 +1,16 @@
-{% load twitter_bootstrap %}
+{% load twitter_bootstrap widget_tweaks %}
 
 <div class="form-group{% if field.errors %} has-error{% endif %}">
     {% if field|is_checkbox %}
     <div class="{{ lbl_size_offset_class }} {{ ipt_size_class }}">
         <div class="checkbox">
             <label for="{{ field.auto_id }}">
-                {{ field }} {{ field.label }}
+                {{ field }} {{ field.label }}{% if field.field.required %}{{ required_suffix }}{% endif %}
             </label>
         </div>
     </div>
     {% else %}
-    <label class="{{ lbl_size_class }} control-label" for="{{ field.auto_id }}">{{ field.label }}</label>
+    <label class="{{ lbl_size_class }} control-label" for="{{ field.auto_id }}">{{ field.label }}{% if field.field.required %}{{ required_suffix }}{% endif %}</label>
     <div class="{{ ipt_size_class }}">
         {{ field|add_class:"form-control" }}
 

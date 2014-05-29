@@ -3,14 +3,14 @@
 <div class="{% if field|is_checkbox %}checkbox{% elif field|is_radio %}radio{% else %}form-group{% endif %}">
     {% if field|is_checkbox %}
         <label for="{{ field.auto_id }}">
-            {{ field }} {{ field.label }}
+            {{ field }} {{ field.label }}{% if field.field.required %}{{ required_suffix }}{% endif %}
         </label>
     {% elif field|is_radio %}
         <label class="radio inline" for="{{ field.auto_id }}">
-            {{ field }} {{ field.label }}
+            {{ field }} {{ field.label }}{% if field.field.required %}{{ required_suffix }}{% endif %}
         </label>
     {% else %}
-        <label class="sr-only" for="{{ field.auto_id }}">{{ field.label }}</label>
+        <label class="sr-only" for="{{ field.auto_id }}">{{ field.label }}{% if field.field.required %}{{ required_suffix }}{% endif %}</label>
         {{ field|add_class:"form-control" }}
     {% endif %}
 </div>

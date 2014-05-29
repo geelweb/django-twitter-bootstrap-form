@@ -81,4 +81,10 @@ Horizontal form
         </div>
     </form>
 
+##Settings
 
+**BOOTSTRAP_REQUIRED_SUFFIX**
+
+Default: " *"
+
+Required field label suffix.

@@ -12,10 +12,10 @@
 <div class="{% if field|is_checkbox %}checkbox{% else %}form-group{% endif %}">
     {% if field|is_checkbox %}
         <label for="{{ field.auto_id }}">
-            {{ field }} {{ field.label }}
+            {{ field }} {{ field.label }}{% if field.field.required %}{{ required_suffix }}{% endif %}
         </label>
     {% else %}
-        <label for="{{ field.auto_id }}">{{ field.label }}</label>
+        <label for="{{ field.auto_id }}">{{ field.label }}{% if field.field.required %}{{ required_suffix }}{% endif %}</label>
         {% if not field|is_file %}
         {{ field|add_class:"form-control" }}
         {% else %}

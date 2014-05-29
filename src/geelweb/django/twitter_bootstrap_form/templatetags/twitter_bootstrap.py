@@ -4,6 +4,8 @@ from django.template.loader import get_template
 
 from widget_tweaks.templatetags.widget_tweaks import append_attr
 
+from geelweb.django.twitter_bootstrap_form import settings
+
 register = template.Library()
 
 @register.filter
@@ -51,6 +53,7 @@ def twitter_bootstrap(element, args=""):
             'lbl_size_class': lbl_size_class,
             'lbl_size_offset_class': lbl_size_offset_class,
             'ipt_size_class': ipt_size_class,
+            'required_suffix': settings.BOOTSTRAP_REQUIRED_SUFFIX,
             'field_template': "twitter_bootstrap_form/%s" % field_template_file})
 
     return template.render(context)
