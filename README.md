@@ -6,7 +6,7 @@ Render Django forms using the HTML described by the [Bootstrap 3](http://getboot
 
 A basic demo is availaible on this [sandbox](http://django-sandbox.geelweb.org/twitter-bootstrap-form)
 
-## Installation
+## Install
 
 From PyPI
 
@@ -35,21 +35,36 @@ From Source:
  * Django>=1.4
  * django-widget-tweaks==1.3
 
-## Configuration
+## Configuring
 
-### settings.py
+Add `geelweb.django.twitter_bootstrap_form` to `INSTALLED_APPS` in your settings
 
-Edit your settings.py file and add the following line into your INSTALLED_APPS
+Load the tags adding `{% load twitter_bootstrap %}` in templates
 
-    'geelweb.django.twitter_bootstrap_form'
+## Template filters
 
-### HTML templates
+**twitter_bootstrap**
 
-Load the filters and use them
+This tag takes 4 optional parameters
 
-    {% load twitter_bootstrap %}
+ * *layout*: Default: "default". Existing layouts are, default, search, inline,
+   horizontal
+ * *size*: Default: "sm". The column sizes. xs, sm, md, lg.
+ * *labelcols*: Default: 2. Number of columns used for labels
+ * *fieldcols*: Default: 12 - labelcols. NUmber of columns used for fields.
 
-Default form
+Example:
+
+    {{ form|twitter_bootstrap }}
+
+Advanced usage:
+
+    {{ form|twitter_bootstrap:"horizontal,md,3,3" }}
+
+
+More examples:
+
+Default form:
 
     <form role="form">
         {{ default_form|twitter_bootstrap }}
@@ -88,3 +103,4 @@ Horizontal form
 Default: " *"
 
 Required field label suffix.
+

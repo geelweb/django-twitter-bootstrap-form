@@ -18,8 +18,8 @@ def twitter_bootstrap(element, args=""):
     - horizontal
 
     {{ form|twitter_bootstrap:"default" }}
-    {{ form|twitter_bootstrap:"horizontal"
-    {{ form|twitter_bootstrap:"horizontal,xs"
+    {{ form|twitter_bootstrap:"horizontal" }}
+    {{ form|twitter_bootstrap:"horizontal,[xs,sm,md,lg],[1-12],[1-12]" }}
     """
     element_type = element.__class__.__name__.lower()
 
