@@ -1,47 +1,55 @@
-# Django Twitter Bootstrap Form
+=============================
+Django Twitter Bootstrap Form
+=============================
 
-Render Django forms using the HTML described by the [Bootstrap 3](http://getbootstrap.com/css/#forms).
+Render Django forms using the HTML described by the `Bootstrap 3 <http://getbootstrap.com/css/#forms>`_.
 
-## Demo
+Demo
+====
 
-A basic demo is availaible on this [sandbox](http://django-sandbox.geelweb.org/twitter-bootstrap-form)
+A basic demo is availaible on this `sandbox <http://django-sandbox.geelweb.org/twitter-bootstrap-form>`_
 
-## Install
+Install
+=======
 
-From PyPI
+From PyPI::
 
     pip install django-twitterbootstrap-form
 
-From Source:
+From Source::
 
-	python setup.py install
+    python setup.py install
 
-### About Bootstrap 2
+About Bootstrap 2
+-----------------
 
 You can install the 0.2 version of this lib if you still work with old versions
-of [Twitter Bootstrap](http://twitter.github.com/bootstrap/base-css.html#forms)
+of `Bootstrap <http://twitter.github.com/bootstrap/base-css.html#forms>`_
 
-From PyPI
+From PyPI::
 
     pip install django-twitterbootstrap-form==0.2
 
-From Source:
+From Source::
 
     git checkout 0.2
     python setup.py install
 
-## Requirements
+Requirements
+------------
 
  * Django>=1.4
  * django-widget-tweaks==1.3
 
-## Configuring
+Configuring
+===========
 
-Add `geelweb.django.twitter_bootstrap_form` to `INSTALLED_APPS` in your settings
+Add ``geelweb.django.twitter_bootstrap_form`` to ``INSTALLED_APPS`` in your settings
 
-Load the tags adding `{% load twitter_bootstrap %}` in templates
+Load the tags adding ``{% load twitter_bootstrap %}`` in templates
 
-## Template filters
+Template filters
+================
 
 **twitter_bootstrap**
 
@@ -53,39 +61,39 @@ This tag takes 4 optional parameters
  * *labelcols*: Default: 2. Number of columns used for labels
  * *fieldcols*: Default: 12 - labelcols. NUmber of columns used for fields.
 
-Example:
+Example::
 
     {{ form|twitter_bootstrap }}
 
-Advanced usage:
+Advanced usage::
 
     {{ form|twitter_bootstrap:"horizontal,md,3,3" }}
 
+More examples
+-------------
 
-More examples:
-
-Default form:
+Default form::
 
     <form role="form">
         {{ default_form|twitter_bootstrap }}
         <button type="submit" class="btn btn-default">Submit</button>
     </form>
 
-Search form / Navbar form
+Search form / Navbar form::
 
     <form role="search" class="navbar-form">
         {{ search_form|twitter_bootstrap:"search" }}
         <button type="submit" class="btn btn-default">Search</button>
     </form>
 
-Inline form
+Inline form::
 
     <form role="form" class="form-inline">
         {{ inline_form|twitter_bootstrap:"inline" }}
         <button type="submit" class="btn btn-default">Sign in</button>
     </form>
 
-Horizontal form
+Horizontal form::
 
     <form role="form" class="form-horizontal">
         {{ horizontal_form|twitter_bootstrap:"horizontal" }}
@@ -96,11 +104,12 @@ Horizontal form
         </div>
     </form>
 
-##Settings
+Settings
+========
 
 **BOOTSTRAP_REQUIRED_SUFFIX**
 
-Default: " *"
+Default: ' \*'
 
 Required field label suffix.
 
