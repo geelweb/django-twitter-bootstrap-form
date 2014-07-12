@@ -126,7 +126,8 @@ Takes one optional argument:
 *btn_attrs*
 
 A dictionary containing HTML attributes to be set on the button. The button can
-be appened or prepended to the input field using the ``append`` key:
+be appened or prepended to the input field using the ``placement`` key set to
+``append`` or ``prepend``::
 
     from geelweb.django.twitter_bootstrap_form.widgets import TextInputWithButton
 
