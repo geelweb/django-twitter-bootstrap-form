@@ -2,6 +2,46 @@ from django.forms import widgets
 from django.forms.util import flatatt
 from django.utils.html import format_html
 
+class TextInputWithAddon(widgets.TextInput):
+    PLACEMENT_APPEND = 'append'
+    PLACEMENT_PREPEND = 'prepend'
+
+    addon = None
+    placement = 'append'
+    size = None
+
+    def __init__(self, attrs=None, addon=None, placement=None, size=None):
+        self.addon = addon
+        self.placement = placement
+        self.size = size
+
+        if self.placement not in [self.PLACEMENT_APPEND, self.PLACEMENT_PREPEND]:
+            self.placement = self.PLACEMENT_APPEND
+        super(TextInputWithAddon, self).__init__(attrs)
+
+    def render(self, name, value, attrs=None):
+        if self.placement == 'append':
+            template = """
+            <div class="input-group{0}">
+                {1}
+                <span class="input-group-addon">{2}</span>
+            </div>
+            """
+        else:
+            template = """
+            <div class="input-group{0}">
+                <span class="input-group-addon">{2}</span>
+                {1}
+            </div>
+            """
+
+
+        return format_html(template,
+            (self.size and ' %s' % self.size) or '',
+            super(TextInputWithAddon, self).render(name, value, attrs),
+            self.addon,
+        )
+
 class TextInputWithButton(widgets.TextInput):
     PLACEMENT_APPEND = 'append'
     PLACEMENT_PREPEND = 'prepend'

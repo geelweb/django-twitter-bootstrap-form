@@ -137,3 +137,32 @@ be appened or prepended to the input field using the ``placement`` key set to
         'placement': 'append'
     }))
 
+TextInputWithAddon
+------------------
+
+Form widget to render `bootstrap addons <http://getbootstrap.com/components/#input-groups-basic>`_.
+
+Takes three optional arguments:
+
+*addon*
+
+The addon label
+
+*placement*
+
+the addon placement, ``append`` or ``prepend``
+
+*size*
+
+nothing for a normal size, ``input-group-lg`` for a large input and
+``input-group-sm`` for a small input.
+
+Example::
+
+    from geelweb.django.twitter_bootstrap_form.widgets import TextInputWithAddon
+
+    field = forms.CharField(widget=TextInputWithAddon(
+        addon='.00',
+        placement='append',
+        size='input-group-lg'
+    ))
