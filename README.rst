@@ -113,3 +113,26 @@ Default: ' \*'
 
 Required field label suffix.
 
+Widgets
+=======
+
+TextInputWithButton
+-------------------
+
+Widget to render `bootstrap button addons <http://getbootstrap.com/components/#input-groups-buttons>`_.
+
+Takes one optional argument:
+
+*btn_attrs*
+
+A dictionary containing HTML attributes to be set on the button. The button can
+be appened or prepended to the input field using the ``append`` key:
+
+    from geelweb.django.twitter_bootstrap_form.widgets import TextInputWithButton
+
+    field = forms.CharField(widget=TextInputWithButton(btn_attrs={
+        'label': 'search',
+        'type': 'submit',
+        'placement': 'append'
+    }))
+
