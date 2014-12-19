@@ -9,7 +9,7 @@ django twitter bootstrap form setup script
 """
 
 __author__ = "Guillaume Luchet <guillaume@geelweb.org>"
-__version__ = "0.3.1"
+__version__ = "0.3.2"
 
 import os, sys
 from setuptools import setup, find_packages
@@ -30,7 +30,7 @@ if __name__ == "__main__":
         maintainer=maintainer,
         maintainer_email=maintainer_email,
         url="https://github.com/geelweb/django-twitter-bootstrap-form",
-        download_url="https://github.com/geelweb/django-twitter-bootstrap-form/tarball/0.3",
+        download_url="https://github.com/geelweb/django-twitter-bootstrap-form/tarball/0.3.2",
         license='MIT',
         namespace_packages = ['geelweb', 'geelweb.django'],
         packages=find_packages('src'),
