@@ -44,6 +44,8 @@ Requirements
 Configuring
 ===========
 
+Add ``widget_tweaks`` to your ``INSTALLED_APPS``.
+
 Add ``geelweb.django.twitter_bootstrap_form`` to ``INSTALLED_APPS`` in your settings
 
 Load the tags adding ``{% load twitter_bootstrap %}`` in templates
