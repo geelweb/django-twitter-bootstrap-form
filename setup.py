@@ -41,5 +41,6 @@ if __name__ == "__main__":
                 ],
         },
         keywords = ['django', 'twitter', 'bootstrap', 'form'],
-        )
+        install_requires = ['django-widget-tweaks'],
+    )
 
