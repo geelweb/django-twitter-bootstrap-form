@@ -1,5 +1,4 @@
 from django import template
-from django.template import Context
 from django.template.loader import get_template
 
 from widget_tweaks.templatetags.widget_tweaks import append_attr
@@ -47,14 +46,14 @@ def twitter_bootstrap(element, args=""):
             field_template_file = "%s_field.html" % layout
 
         template = get_template("twitter_bootstrap_form/form.html")
-        context = Context({
+        context = {
             'form': element,
             'layout': layout,
             'lbl_size_class': lbl_size_class,
             'lbl_size_offset_class': lbl_size_offset_class,
             'ipt_size_class': ipt_size_class,
             'required_suffix': settings.BOOTSTRAP_REQUIRED_SUFFIX,
-            'field_template': "twitter_bootstrap_form/%s" % field_template_file})
+            'field_template': "twitter_bootstrap_form/%s" % field_template_file}
 
     return template.render(context)
 
