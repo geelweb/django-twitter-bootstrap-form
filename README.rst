@@ -38,8 +38,15 @@ From Source::
 Requirements
 ------------
 
- * Django>=1.4
- * django-widget-tweaks==1.3
+**0.4.0**
+
+ * Django >= 1.8
+ * django-widget-tweaks == 1.3
+
+**0.3.3**
+
+ * Django >= 1.4, <= 1.8
+ * django-widget-tweaks == 1.3
 
 Configuring
 ===========

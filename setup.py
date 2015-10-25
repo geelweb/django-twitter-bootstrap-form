@@ -9,7 +9,7 @@ django twitter bootstrap form setup script
 """
 
 __author__ = "Guillaume Luchet <guillaume@geelweb.org>"
-__version__ = "0.3.3"
+__version__ = "0.4.0"
 
 import os, sys
 from setuptools import setup, find_packages
@@ -41,6 +41,9 @@ if __name__ == "__main__":
                 ],
         },
         keywords = ['django', 'twitter', 'bootstrap', 'form'],
-        install_requires = ['django-widget-tweaks'],
+        install_requires = [
+            'django>=1.8',
+            'django-widget-tweaks'
+        ],
     )
 
