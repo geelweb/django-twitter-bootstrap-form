@@ -19,7 +19,7 @@ class TextInputWithAddon(widgets.TextInput):
             self.placement = self.PLACEMENT_APPEND
         super(TextInputWithAddon, self).__init__(attrs)
 
-    def render(self, name, value, attrs=None):
+    def render(self, name, value, attrs=None, renderer=None):
         if self.placement == 'append':
             template = """
             <div class="input-group{0}">
@@ -38,7 +38,7 @@ class TextInputWithAddon(widgets.TextInput):
 
         return format_html(template,
             (self.size and ' %s' % self.size) or '',
-            super(TextInputWithAddon, self).render(name, value, attrs),
+            super(TextInputWithAddon, self).render(name, value, attrs, renderer),
             self.addon,
         )
 
@@ -71,7 +71,7 @@ class TextInputWithButton(widgets.TextInput):
             attrs.update(extra_attrs)
         return attrs
 
-    def render(self, name, value, attrs=None, btn_attrs=None):
+    def render(self, name, value, attrs=None, renderer=None, btn_attrs=None):
         final_btn_attrs = self.build_btn_attrs(btn_attrs, type=self.btn_type)
         if 'class' not in final_btn_attrs:
             final_btn_attrs['class'] = 'btn btn-default'
@@ -96,7 +96,7 @@ class TextInputWithButton(widgets.TextInput):
             """
 
         return format_html(template,
-            super(TextInputWithButton, self).render(name, value, attrs),
+            super(TextInputWithButton, self).render(name, value, attrs, renderer),
             flatatt(final_btn_attrs),
             self.btn_label,
         )
